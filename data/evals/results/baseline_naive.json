@@ -1,12 +1,63 @@
 {
   "name": "baseline_naive",
-  "n_answerable": 32,
+  "n_answerable": 36,
   "n_refusal_probes": 3,
-  "summary": {
-    "faithfulness": 0.8828,
+  "summary_core": {
     "answer_relevancy": 0.7741,
-    "context_precision": 0.9062,
-    "context_recall": 0.9115
+    "context_precision": 0.9063,
+    "context_recall": 0.9115,
+    "faithfulness": 0.8828
+  },
+  "summary_by_category": {
+    "baggage_allowance": {
+      "n": 8,
+      "answer_relevancy": 0.8576,
+      "context_precision": 0.8229,
+      "context_recall": 1.0,
+      "faithfulness": 0.7917
+    },
+    "cancellations_refunds": {
+      "n": 7,
+      "answer_relevancy": 0.5697,
+      "context_precision": 0.8929,
+      "context_recall": 0.8571,
+      "faithfulness": 0.8095
+    },
+    "check_in_boarding": {
+      "n": 5,
+      "answer_relevancy": 0.8258,
+      "context_precision": 1.0,
+      "context_recall": 0.9333,
+      "faithfulness": 0.95
+    },
+    "fees": {
+      "n": 6,
+      "answer_relevancy": 0.8692,
+      "context_precision": 0.875,
+      "context_recall": 0.75,
+      "faithfulness": 0.9167
+    },
+    "liability": {
+      "n": 1,
+      "answer_relevancy": 0.6139,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "faithfulness": 1.0
+    },
+    "practical": {
+      "n": 4,
+      "answer_relevancy": 0.5027,
+      "context_precision": 1.0,
+      "context_recall": 0.7083,
+      "faithfulness": 0.7661
+    },
+    "special_items": {
+      "n": 5,
+      "answer_relevancy": 0.7929,
+      "context_precision": 0.9833,
+      "context_recall": 1.0,
+      "faithfulness": 1.0
+    }
   },
   "refusal_accuracy": 1.0,
   "per_question": [
@@ -16,7 +67,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.7398,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "baggage_allowance"
     },
     {
       "id": 2,
@@ -24,7 +76,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.9457,
       "context_precision": 0.8056,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "baggage_allowance"
     },
     {
       "id": 3,
@@ -32,7 +85,8 @@
       "faithfulness": 0.3333,
       "answer_relevancy": 0.7713,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "baggage_allowance"
     },
     {
       "id": 4,
@@ -40,7 +94,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.9236,
       "context_precision": 0.75,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "baggage_allowance"
     },
     {
       "id": 5,
@@ -48,7 +103,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.809,
       "context_precision": 0.6389,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "baggage_allowance"
     },
     {
       "id": 6,
@@ -56,7 +112,8 @@
       "faithfulness": 0.5,
       "answer_relevancy": 1.0,
       "context_precision": 0.8056,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "baggage_allowance"
     },
     {
       "id": 7,
@@ -64,7 +121,8 @@
       "faithfulness": 0.5,
       "answer_relevancy": 0.8505,
       "context_precision": 0.5833,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "baggage_allowance"
     },
     {
       "id": 8,
@@ -72,7 +130,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.8208,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "baggage_allowance"
     },
     {
       "id": 9,
@@ -80,7 +139,8 @@
       "faithfulness": 0.5,
       "answer_relevancy": 0.7758,
       "context_precision": 1.0,
-      "context_recall": 0.5
+      "context_recall": 0.5,
+      "category": "fees"
     },
     {
       "id": 10,
@@ -88,7 +148,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.9587,
       "context_precision": 0.75,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "fees"
     },
     {
       "id": 11,
@@ -96,7 +157,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.9227,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "fees"
     },
     {
       "id": 12,
@@ -104,7 +166,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.7741,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "fees"
     },
     {
       "id": 13,
@@ -112,7 +175,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.8361,
       "context_precision": 0.5,
-      "context_recall": 0.5
+      "context_recall": 0.5,
+      "category": "fees"
     },
     {
       "id": 14,
@@ -120,7 +184,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.9476,
       "context_precision": 1.0,
-      "context_recall": 0.5
+      "context_recall": 0.5,
+      "category": "fees"
     },
     {
       "id": 15,
@@ -128,7 +193,8 @@
       "faithfulness": 0.5,
       "answer_relevancy": 0.7708,
       "context_precision": 0.25,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "cancellations_refunds"
     },
     {
       "id": 16,
@@ -136,7 +202,8 @@
       "faithfulness": 0.6667,
       "answer_relevancy": 0.6661,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "cancellations_refunds"
     },
     {
       "id": 17,
@@ -144,7 +211,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.531,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "cancellations_refunds"
     },
     {
       "id": 18,
@@ -152,7 +220,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.7463,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "cancellations_refunds"
     },
     {
       "id": 19,
@@ -160,7 +229,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.5769,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "cancellations_refunds"
     },
     {
       "id": 20,
@@ -168,7 +238,8 @@
       "faithfulness": 0.5,
       "answer_relevancy": 0.0,
       "context_precision": 1.0,
-      "context_recall": 0.0
+      "context_recall": 0.0,
+      "category": "cancellations_refunds"
     },
     {
       "id": 21,
@@ -176,7 +247,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.6968,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "cancellations_refunds"
     },
     {
       "id": 22,
@@ -184,7 +256,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.7853,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "check_in_boarding"
     },
     {
       "id": 23,
@@ -192,7 +265,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.7969,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "check_in_boarding"
     },
     {
       "id": 24,
@@ -200,7 +274,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.9179,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "check_in_boarding"
     },
     {
       "id": 25,
@@ -208,7 +283,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.9276,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "check_in_boarding"
     },
     {
       "id": 26,
@@ -216,7 +292,8 @@
       "faithfulness": 0.75,
       "answer_relevancy": 0.7011,
       "context_precision": 1.0,
-      "context_recall": 0.6667
+      "context_recall": 0.6667,
+      "category": "check_in_boarding"
     },
     {
       "id": 27,
@@ -224,7 +301,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.8112,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "special_items"
     },
     {
       "id": 28,
@@ -232,7 +310,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.7815,
       "context_precision": 0.9167,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "special_items"
     },
     {
       "id": 29,
@@ -240,7 +319,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.7295,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "special_items"
     },
     {
       "id": 30,
@@ -248,7 +328,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.6423,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "special_items"
     },
     {
       "id": 31,
@@ -256,7 +337,8 @@
       "faithfulness": 1.0,
       "answer_relevancy": 1.0,
       "context_precision": 1.0,
-      "context_recall": 1.0
+      "context_recall": 1.0,
+      "category": "special_items"
     },
     {
       "id": 32,
@@ -264,7 +346,44 @@
       "faithfulness": 1.0,
       "answer_relevancy": 0.6139,
       "context_precision": 1.0,
+      "context_recall": 1.0,
+      "category": "liability"
+    },
+    {
+      "id": 36,
+      "question": "My checked bag is at 13kg and I want to add a wine bottle. Domestic flight - will I go over the limit, and if yes what do I pay?",
+      "category": "practical",
+      "faithfulness": 0.7143,
+      "answer_relevancy": 0.0,
+      "context_precision": 1.0,
+      "context_recall": 0.75
+    },
+    {
+      "id": 37,
+      "question": "I'm travelling with a 28kg checked bag. Does it matter whether my flight is to Dubai or to Nairobi?",
+      "category": "practical",
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.6253,
+      "context_precision": 1.0,
+      "context_recall": 0.75
+    },
+    {
+      "id": 38,
+      "question": "I have two bags for my domestic trip and the second one counts as an extra piece. Do I save money by booking it online instead of paying at the airport?",
+      "category": "practical",
+      "faithfulness": 0.75,
+      "answer_relevancy": 0.7302,
+      "context_precision": 1.0,
       "context_recall": 1.0
+    },
+    {
+      "id": 39,
+      "question": "How much will 10kg of extra baggage cost me?",
+      "category": "practical",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.6552,
+      "context_precision": 1.0,
+      "context_recall": 0.3333
     }
   ],
   "refusal_probes": [
@@ -447,6 +566,26 @@
       "id": 32,
       "question": "My checked bag was lost by the airline. How much compensation can I get?",
       "response": "For lost Checked-in Baggage, IndiGo's liability is limited to INR 350 per kg, subject to a maximum of INR 25,000 per passenger, unless a special declaration is made at the time of Check-in."
+    },
+    {
+      "id": 36,
+      "question": "My checked bag is at 13kg and I want to add a wine bottle. Domestic flight - will I go over the limit, and if yes what do I pay?",
+      "response": "For a domestic flight, the checked-in baggage allowance is 15 kg per person. If your checked bag is at 13 kg and you add a wine bottle, you may exceed the limit depending on the weight of the wine bottle. If you go over the limit, additional charges may apply for excess baggage, but the specific fees are not provided in the context. I recommend contacting IndiGo support for detailed information on excess baggage charges."
+    },
+    {
+      "id": 37,
+      "question": "I'm travelling with a 28kg checked bag. Does it matter whether my flight is to Dubai or to Nairobi?",
+      "response": "Yes, it matters. For flights to Dubai, the checked baggage allowance is 30kg per person, so your 28kg bag is within the limit. However, for flights to Nairobi, the allowance is only 25kg per person, which means your 28kg bag would exceed the limit and additional excess baggage charges may apply."
+    },
+    {
+      "id": 38,
+      "question": "I have two bags for my domestic trip and the second one counts as an extra piece. Do I save money by booking it online instead of paying at the airport?",
+      "response": "Yes, you can save money by pre-booking your additional piece of baggage online. The pre-booking charge is INR 800 per piece, while the charge at the airport is INR 1000 per piece. Therefore, booking online will save you INR 200."
+    },
+    {
+      "id": 39,
+      "question": "How much will 10kg of extra baggage cost me?",
+      "response": "For domestic travel, the cost for 10 kg of pre-paid excess baggage is ₹ 6,500. If you are at the airport, the charge is ₹ 700 per kg for excess baggage."
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "description": "Eval dataset for Support Brain (IndiGo corpus). Ground truths verified against source documents by hand. Questions use casual customer phrasing on purpose - retrieval must bridge the wording gap. Items with answerable=false test refusal behaviour (answer is NOT in the corpus).",
+  "description": "Eval dataset for Support Brain (IndiGo corpus). Ground truths verified against source documents by hand. Questions use casual customer phrasing on purpose - retrieval must bridge the wording gap. Items with answerable=false test refusal behaviour (answer is NOT in the corpus). category='practical' items (36-39) require combining multiple rules, light arithmetic, and labeled general-knowledge assumptions - they are reported per-category and excluded from the core headline averages (RAGAS faithfulness penalizes labeled assumptions by design).",
   "created": "2026-07-17",
   "items": [
     {
@@ -281,6 +281,46 @@
       "source": "none",
       "category": "refusal_probe",
       "answerable": false
+    },
+    {
+      "id": 36,
+      "question": "My checked bag is at 13kg and I want to add a wine bottle. Domestic flight - will I go over the limit, and if yes what do I pay?",
+      "ground_truth": "A typical wine bottle weighs about 1.2-1.5 kg (this is an assumption - the documents don't state bottle weights - and should be labeled as such). 13 kg + ~1.3 kg is roughly 14.3 kg, which stays under the 15 kg domestic free allowance, so no excess fee is due. If the bag did exceed 15 kg, excess weight costs INR 700 per kg at the airport. Carrying wine in checked baggage is permitted: retail packaging, packed against leakage, and since wine is under 24% alcohol the 5-litre limit does not apply.",
+      "source": "multiple",
+      "category": "practical",
+      "answerable": true,
+      "required_sources": ["baggage-allowance.html or google-sheet-fees (15kg domestic allowance)", "google-sheet-fees (INR 700/kg excess)", "indigo-baggage-policy.pdf (alcohol carriage rules)"],
+      "expected_behavior": "Combine 3 rules + light arithmetic; label the bottle-weight assumption explicitly as an assumption."
+    },
+    {
+      "id": 37,
+      "question": "I'm travelling with a 28kg checked bag. Does it matter whether my flight is to Dubai or to Nairobi?",
+      "ground_truth": "Yes, it matters. The free checked allowance for Dubai is 30 kg, so a 28 kg bag is within limits. For Nairobi the allowance is 25 kg, so the bag is 3 kg over and excess baggage charges apply for those 3 kg (charged per kg at the airport; the fee table lists per-kg airport rates by currency, e.g. INR 700).",
+      "source": "multiple",
+      "category": "practical",
+      "answerable": true,
+      "required_sources": ["baggage-allowance.html or google-sheet-fees (Dubai 30kg row)", "google-sheet-fees (Nairobi 25kg row)", "excess-baggage.html (per-kg airport rates)"],
+      "expected_behavior": "Select the correct route-specific allowance for each destination and compare against the same bag weight."
+    },
+    {
+      "id": 38,
+      "question": "I have two bags for my domestic trip and the second one counts as an extra piece. Do I save money by booking it online instead of paying at the airport?",
+      "ground_truth": "Yes. A pre-booked additional piece costs less than paying at the airport (INR 1,000 at the airport; pre-booked is INR 900 per the Conditions of Carriage, though the fee sheet lists INR 800 - the sources conflict, and a good answer cites its source or notes the discrepancy). Either way, this is a per-piece service charge only; per-kg excess weight charges for that bag's weight apply on top.",
+      "source": "multiple",
+      "category": "practical",
+      "answerable": true,
+      "required_sources": ["indigo-conditions-of-carriage.pdf (additional piece table: 900 prebook / 1000 airport)", "google-sheet-fees (800 prebook / 1000 airport rows)"],
+      "expected_behavior": "Compare two fees across sources; ideally surface or attribute the 800-vs-900 source conflict rather than silently picking one."
+    },
+    {
+      "id": 39,
+      "question": "How much will 10kg of extra baggage cost me?",
+      "ground_truth": "The question is missing a key variable: domestic or international, and pre-booked or paid at the airport - the correct behavior is to state what's missing and/or cover the cases. For domestic: pre-booked 10 kg slab costs INR 6,500, while paying at the airport costs INR 700/kg = INR 7,000. International rates differ by route/currency per the fee table.",
+      "source": "multiple",
+      "category": "practical",
+      "answerable": true,
+      "required_sources": ["excess-baggage.html (domestic slab table: 10kg = 6,500)", "google-sheet-fees (INR 700/kg airport excess)"],
+      "expected_behavior": "Recognize the under-specified question; state the missing variable (domestic vs international, prebook vs airport) and answer per case rather than picking one silently."
     }
   ]
 }
