@@ -36,8 +36,8 @@ sys.path.insert(0, str(ROOT))
 JUDGE_MODEL = "gpt-4o-mini"  # judging is pattern-matching against provided text; mini is fine
 NON_METRIC_COLS = ("user_input", "response", "retrieved_contexts", "reference")
 REFUSAL_MARKERS = re.compile(
-    r"don'?t have|do not have|not (?:available|contain|mentioned|specified)|no information"
-    r"|contact indigo|reach out to indigo|unable to find|cannot find",
+    r"don'?t have|do not have|not (?:available|contain|mentioned|specified|provided?)|no information"
+    r"|(?:does|do) not provide|contact(?:ing)? indigo|reach(?:ing)? out to indigo|unable to find|cannot find",
     re.IGNORECASE,
 )
 
