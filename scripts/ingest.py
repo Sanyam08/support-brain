@@ -116,6 +116,14 @@ def main():
 
     print("Loading corpus...")
     docs = load_pdfs() + load_html() + load_sheet()
+
+    # The saved pages/PDFs carry double-encoded characters (₹ stored as 'â‚¹', stray 'Â').
+    # ftfy repairs mojibake locally — garbage in the chunks would surface verbatim in answers.
+    import ftfy
+
+    for d in docs:
+        d.set_content(ftfy.fix_text(d.get_content()))
+
     print(f"Loaded {len(docs)} documents. Chunking...")
     nodes = chunk(docs)
 
