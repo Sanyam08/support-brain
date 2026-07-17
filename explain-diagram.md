@@ -71,6 +71,28 @@ That's what RAG stands for: **R**etrieve → **A**ugment → **G**enerate.
 
 **Diagram idea:** user → `POST /ask` → [embed question] → (pgvector: nearest 4 chunks) → [LLM + guardrail prompt] → answer + citations. Side note: "each question ≈ $0.0005".
 
-## W2 — evals (RAGAS), hybrid retrieval, Langfuse — *next*
+## W2-1 · Eval dataset (done 2026-07-17)
 
-*(Add sections here as milestones complete: W2 eval harness + before/after numbers, W3 delivery + dashboard.)*
+35 questions with hand-verified correct answers ("ground truths") — the **answer key** the bot gets graded against. 32 answerable + 3 "refusal probes" (questions whose answers are NOT in the docs — the bot passes by admitting it doesn't know). Questions use casual customer phrasing ("bag is overweight") while docs use formal language ("excess baggage charges") — retrieval must bridge that gap. Sanyam reviewed before use: the grader of the system shouldn't be graded by its own author.
+
+**War story:** the corpus contradicts itself twice (additional-piece fee ₹800 in the sheet vs ₹900 in the CoC; excess baggage "starting at ₹1,280" vs cheapest table slab ₹1,950). Real client knowledge bases do this constantly — evals surface it.
+
+## W2-2 · RAGAS baseline (done 2026-07-17)
+
+`scripts/run_eval.py` runs all 35 questions through the bot, then a judge LLM (gpt-4o-mini) scores each answer on 4 metrics. **LLM-as-judge** = a second model grades the first model's work against the retrieved chunks and the answer key.
+
+The 4 metrics in plain words:
+- **faithfulness** — did the answer only say things the retrieved chunks support? (anti-hallucination)
+- **answer_relevancy** — did it actually answer the question asked?
+- **context_precision** — were the retrieved chunks on-topic, or padded with junk?
+- **context_recall** — did retrieval find the chunks needed to answer correctly? (measures the retriever, not the writer)
+
+**Baseline (naive vector-only retrieval):** faithfulness 0.883 · answer_relevancy 0.774 · context_precision 0.906 · context_recall 0.911 · refusals 3/3 correct.
+
+**The demo-perfect failure:** Q20 "Is there an extra charge for cancelling through the call centre?" scored context_recall 0.00 — retrieval completely missed the ₹500 facilitation-fee paragraph. Meaning-based (vector) search struggles with keyword-shaped facts. That's precisely what W2-3's hybrid retrieval (vectors + keyword search) exists to fix → the before/after numbers.
+
+**Diagram idea:** a report card with 4 bars (the baseline), one bar circled in red (recall miss on Q20), arrow to "hybrid retrieval" box, second report card with higher bars. THE money shot of the whole project.
+
+## W2-3+ — hybrid retrieval + reranking, Langfuse, W3 delivery — *next*
+
+*(Add sections as milestones complete.)*
