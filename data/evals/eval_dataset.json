@@ -85,7 +85,7 @@
     {
       "id": 11,
       "question": "What's the cheapest excess baggage option I can prebook?",
-      "ground_truth": "Pre-paid excess baggage starts at INR 1,280; prices vary based on availability. The smallest domestic slab is 3 kg at INR 1,950.",
+      "ground_truth": "The cheapest fixed slab in the domestic pre-paid excess baggage table is 3 kg at INR 1,950. The page also advertises pre-booked additional baggage 'starting at INR 1,280' with prices varying by availability, so the exact minimum can differ from the table.",
       "source": "excess-baggage.html",
       "category": "fees",
       "answerable": true
