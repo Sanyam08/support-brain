@@ -59,7 +59,9 @@ def _get_llm():
     return OpenAI(model=LLM_MODEL, temperature=0.1, max_tokens=500)
 
 
-def answer(question: str) -> dict:
+def answer(question: str, include_contexts: bool = False) -> dict:
+    """include_contexts=True adds the full retrieved chunk texts — used by the eval
+    harness (RAGAS grades retrieval on the exact contexts the LLM saw), not the API."""
     from llama_index.core.llms import ChatMessage
 
     # Step 1 — RETRIEVE: embed the question (one tiny API call), let pgvector
@@ -83,7 +85,7 @@ def answer(question: str) -> dict:
         ]
     )
 
-    return {
+    result = {
         "answer": response.message.content.strip(),
         "sources": [
             {
@@ -95,3 +97,6 @@ def answer(question: str) -> dict:
             for h in hits
         ],
     }
+    if include_contexts:
+        result["contexts"] = [h.get_content() for h in hits]
+    return result
