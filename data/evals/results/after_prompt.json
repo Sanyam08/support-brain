@@ -1,0 +1,591 @@
+{
+  "name": "after_prompt",
+  "n_answerable": 36,
+  "n_refusal_probes": 3,
+  "summary_core": {
+    "answer_relevancy": 0.7846,
+    "context_precision": 0.8044,
+    "context_recall": 0.9427,
+    "faithfulness": 0.9427
+  },
+  "summary_by_category": {
+    "baggage_allowance": {
+      "n": 8,
+      "answer_relevancy": 0.8534,
+      "context_precision": 0.788,
+      "context_recall": 1.0,
+      "faithfulness": 1.0
+    },
+    "cancellations_refunds": {
+      "n": 7,
+      "answer_relevancy": 0.5822,
+      "context_precision": 0.8103,
+      "context_recall": 1.0,
+      "faithfulness": 0.9048
+    },
+    "check_in_boarding": {
+      "n": 5,
+      "answer_relevancy": 0.8341,
+      "context_precision": 0.8442,
+      "context_recall": 0.9333,
+      "faithfulness": 1.0
+    },
+    "fees": {
+      "n": 6,
+      "answer_relevancy": 0.8435,
+      "context_precision": 0.7315,
+      "context_recall": 0.75,
+      "faithfulness": 0.8056
+    },
+    "liability": {
+      "n": 1,
+      "answer_relevancy": 0.6078,
+      "context_precision": 0.71,
+      "context_recall": 1.0,
+      "faithfulness": 1.0
+    },
+    "practical": {
+      "n": 4,
+      "answer_relevancy": 0.513,
+      "context_precision": 0.9427,
+      "context_recall": 0.625,
+      "faithfulness": 0.8611
+    },
+    "special_items": {
+      "n": 5,
+      "answer_relevancy": 0.8734,
+      "context_precision": 0.8889,
+      "context_recall": 1.0,
+      "faithfulness": 1.0
+    }
+  },
+  "refusal_accuracy": 1.0,
+  "per_question": [
+    {
+      "id": 1,
+      "question": "How heavy can my cabin bag be?",
+      "category": "baggage_allowance",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7769,
+      "context_precision": 0.9667,
+      "context_recall": 1.0
+    },
+    {
+      "id": 2,
+      "question": "What are the size limits for hand baggage?",
+      "category": "baggage_allowance",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.826,
+      "context_precision": 0.95,
+      "context_recall": 1.0
+    },
+    {
+      "id": 3,
+      "question": "How much free check-in baggage do I get on a domestic flight?",
+      "category": "baggage_allowance",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.6796,
+      "context_precision": 0.8167,
+      "context_recall": 1.0
+    },
+    {
+      "id": 4,
+      "question": "I'm flying IndiGo business class - what's my baggage allowance?",
+      "category": "baggage_allowance",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9236,
+      "context_precision": 0.5833,
+      "context_recall": 1.0
+    },
+    {
+      "id": 5,
+      "question": "Is there a maximum weight for a single suitcase?",
+      "category": "baggage_allowance",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9441,
+      "context_precision": 0.4111,
+      "context_recall": 1.0
+    },
+    {
+      "id": 6,
+      "question": "What is the baggage allowance for flights to Dubai?",
+      "category": "baggage_allowance",
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.9667,
+      "context_recall": 1.0
+    },
+    {
+      "id": 7,
+      "question": "How much luggage can I take to Kathmandu?",
+      "category": "baggage_allowance",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.8282,
+      "context_precision": 0.8542,
+      "context_recall": 1.0
+    },
+    {
+      "id": 8,
+      "question": "Do infants get a baggage allowance?",
+      "category": "baggage_allowance",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.8486,
+      "context_precision": 0.7556,
+      "context_recall": 1.0
+    },
+    {
+      "id": 9,
+      "question": "How much do I pay per kg if my bag is overweight at the airport?",
+      "category": "fees",
+      "faithfulness": 0.5,
+      "answer_relevancy": 0.7798,
+      "context_precision": 0.325,
+      "context_recall": 0.0
+    },
+    {
+      "id": 10,
+      "question": "What does 10kg of prepaid excess baggage cost for a domestic flight?",
+      "category": "fees",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9549,
+      "context_precision": 0.8056,
+      "context_recall": 1.0
+    },
+    {
+      "id": 11,
+      "question": "What's the cheapest excess baggage option I can prebook?",
+      "category": "fees",
+      "faithfulness": 0.3333,
+      "answer_relevancy": 0.7633,
+      "context_precision": 0.9667,
+      "context_recall": 1.0
+    },
+    {
+      "id": 12,
+      "question": "I booked a Lite fare - can I check in a bag?",
+      "category": "fees",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7611,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": 13,
+      "question": "How late can I buy prepaid excess baggage before my flight?",
+      "category": "fees",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.8361,
+      "context_precision": 0.325,
+      "context_recall": 0.5
+    },
+    {
+      "id": 14,
+      "question": "What is the charge for carrying an extra piece of checked baggage?",
+      "category": "fees",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9657,
+      "context_precision": 0.9667,
+      "context_recall": 1.0
+    },
+    {
+      "id": 15,
+      "question": "By when do I need to cancel my ticket if I don't want to lose the fare?",
+      "category": "cancellations_refunds",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.5444,
+      "context_precision": 0.1667,
+      "context_recall": 1.0
+    },
+    {
+      "id": 16,
+      "question": "I booked yesterday directly on the IndiGo website. Can I still cancel for free?",
+      "category": "cancellations_refunds",
+      "faithfulness": 0.3333,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.8333,
+      "context_recall": 1.0
+    },
+    {
+      "id": 17,
+      "question": "How long does a refund to my credit card take?",
+      "category": "cancellations_refunds",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.5301,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": 18,
+      "question": "There's a spelling mistake in my name on the ticket. Can I fix it?",
+      "category": "cancellations_refunds",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7828,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": 19,
+      "question": "What happens to my money if I miss my flight without cancelling?",
+      "category": "cancellations_refunds",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.6687,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": 20,
+      "question": "Is there an extra charge for cancelling through the call centre?",
+      "category": "cancellations_refunds",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.6463,
+      "context_precision": 0.7556,
+      "context_recall": 1.0
+    },
+    {
+      "id": 21,
+      "question": "What is a Credit Shell?",
+      "category": "cancellations_refunds",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9033,
+      "context_precision": 0.9167,
+      "context_recall": 1.0
+    },
+    {
+      "id": 22,
+      "question": "How early should I reach the airport before my IndiGo flight?",
+      "category": "check_in_boarding",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7878,
+      "context_precision": 0.4167,
+      "context_recall": 1.0
+    },
+    {
+      "id": 23,
+      "question": "Until when can I do web check-in?",
+      "category": "check_in_boarding",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7912,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": 24,
+      "question": "Can I use my Aadhaar card as ID at check-in?",
+      "category": "check_in_boarding",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9591,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": 25,
+      "question": "Who is not allowed to sit in the emergency exit row?",
+      "category": "check_in_boarding",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9287,
+      "context_precision": 0.8042,
+      "context_recall": 0.6667
+    },
+    {
+      "id": 26,
+      "question": "My flight was overbooked and I was denied boarding. What am I entitled to?",
+      "category": "check_in_boarding",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7037,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": 27,
+      "question": "Can I carry a power bank in my checked luggage?",
+      "category": "special_items",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9871,
+      "context_precision": 0.8333,
+      "context_recall": 1.0
+    },
+    {
+      "id": 28,
+      "question": "How much alcohol can I carry in my checked bag?",
+      "category": "special_items",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7846,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": 29,
+      "question": "Can I bring my hoverboard on the flight?",
+      "category": "special_items",
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.8056,
+      "context_recall": 1.0
+    },
+    {
+      "id": 30,
+      "question": "I want to carry a big LED TV back home. Is that allowed?",
+      "category": "special_items",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.5953,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": 31,
+      "question": "Are e-cigarettes allowed on IndiGo flights?",
+      "category": "special_items",
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.8056,
+      "context_recall": 1.0
+    },
+    {
+      "id": 32,
+      "question": "My checked bag was lost by the airline. How much compensation can I get?",
+      "category": "liability",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.6078,
+      "context_precision": 0.71,
+      "context_recall": 1.0
+    },
+    {
+      "id": 36,
+      "question": "My checked bag is at 13kg and I want to add a wine bottle. Domestic flight - will I go over the limit, and if yes what do I pay?",
+      "category": "practical",
+      "faithfulness": 0.4444,
+      "answer_relevancy": 0.0,
+      "context_precision": 1.0,
+      "context_recall": 0.75
+    },
+    {
+      "id": 37,
+      "question": "I'm travelling with a 28kg checked bag. Does it matter whether my flight is to Dubai or to Nairobi?",
+      "category": "practical",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.6253,
+      "context_precision": 1.0,
+      "context_recall": 0.75
+    },
+    {
+      "id": 38,
+      "question": "I have two bags for my domestic trip and the second one counts as an extra piece. Do I save money by booking it online instead of paying at the airport?",
+      "category": "practical",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7892,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": 39,
+      "question": "How much will 10kg of extra baggage cost me?",
+      "category": "practical",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.6374,
+      "context_precision": 0.7708,
+      "context_recall": 0.0
+    }
+  ],
+  "refusal_probes": [
+    {
+      "id": 33,
+      "question": "Can I take my pet dog in the cabin with me?",
+      "refused": true,
+      "response": "The context does not provide information about taking pets, including dogs, in the cabin with you on IndiGo flights. I suggest contacting IndiGo support for specific details regarding pet travel policies."
+    },
+    {
+      "id": 34,
+      "question": "How much does it cost to select a window seat in advance?",
+      "refused": true,
+      "response": "I don't have that information. I suggest contacting IndiGo support for details on the cost of selecting a window seat in advance."
+    },
+    {
+      "id": 35,
+      "question": "Does IndiGo have a frequent flyer program and how do I earn points?",
+      "refused": true,
+      "response": "I don't have that information. I suggest contacting IndiGo support for details about their frequent flyer program and how to earn points."
+    }
+  ],
+  "responses": [
+    {
+      "id": 1,
+      "question": "How heavy can my cabin bag be?",
+      "response": "Your cabin bag can weigh a maximum of 7 kgs and must not exceed the dimensions of 55cm x 35cm x 25cm. Additionally, you are allowed to carry one personal article, such as a ladies' purse or a small bag containing a laptop, not weighing more than 3 kgs."
+    },
+    {
+      "id": 2,
+      "question": "What are the size limits for hand baggage?",
+      "response": "The size limits for hand baggage on IndiGo flights are as follows: the maximum dimensions allowed are length 55 cm, width 35 cm, and height 25 cm. Additionally, each customer is permitted to carry only 1 (one) hand baggage weighing a maximum of 7 (seven) kg."
+    },
+    {
+      "id": 3,
+      "question": "How much free check-in baggage do I get on a domestic flight?",
+      "response": "On a domestic flight with IndiGo, you are allowed a free checked-in baggage allowance of 15 kg per customer, limited to 1 piece only. If you have a Double/MultiSeat booking, you will receive an additional 10 kg."
+    },
+    {
+      "id": 4,
+      "question": "I'm flying IndiGo business class - what's my baggage allowance?",
+      "response": "As an IndiGo business class customer, you are allowed free checked-in baggage up to 40 kg per passenger, limited to 2 (two) pieces only. If the total weight of your checked-in baggage exceeds 40 kg, excess baggage charges will apply."
+    },
+    {
+      "id": 5,
+      "question": "Is there a maximum weight for a single suitcase?",
+      "response": "Yes, the maximum weight for a single suitcase is 23 kg. Heavier single pieces are not accepted."
+    },
+    {
+      "id": 6,
+      "question": "What is the baggage allowance for flights to Dubai?",
+      "response": "The baggage allowance for flights to Dubai is 30 kg per person, based on the sector. Additional excess baggage charges may apply."
+    },
+    {
+      "id": 7,
+      "question": "How much luggage can I take to Kathmandu?",
+      "response": "You can take a checked baggage allowance of 20 kg per person to Kathmandu. Additionally, you are allowed one handbag up to 7 kg and 115 cms (L+W+H), along with one personal article not weighing more than 3 kg."
+    },
+    {
+      "id": 8,
+      "question": "Do infants get a baggage allowance?",
+      "response": "Yes, infants are allowed to carry baggage. For both domestic and international travel, infants can have one hand bag up to 7 kgs and 115 cms (L+W+H). Additionally, one stroller or baby pram per infant is allowed without any charge."
+    },
+    {
+      "id": 9,
+      "question": "How much do I pay per kg if my bag is overweight at the airport?",
+      "response": "If your bag is overweight at the airport, you will be charged at a rate of INR 700 per kg for excess baggage."
+    },
+    {
+      "id": 10,
+      "question": "What does 10kg of prepaid excess baggage cost for a domestic flight?",
+      "response": "For a domestic flight, the cost for 10 kg of prepaid excess baggage is ₹ 6,500."
+    },
+    {
+      "id": 11,
+      "question": "What's the cheapest excess baggage option I can prebook?",
+      "response": "The cheapest excess baggage option you can pre-book is for domestic travel, starting at ₹ 1,280. This allows you to book pre-paid excess baggage up to 2 hours prior to the scheduled departure of your flight."
+    },
+    {
+      "id": 12,
+      "question": "I booked a Lite fare - can I check in a bag?",
+      "response": "If you booked a Lite Fare, you may not be permitted to carry any Checked-in Baggage unless you pay the excess/additional Baggage charges. The charges for Lite Fare Checked-in Baggage are INR 1500 for domestic flights and INR 3000 for international flights, whether you pre-book or pay at the airport."
+    },
+    {
+      "id": 13,
+      "question": "How late can I buy prepaid excess baggage before my flight?",
+      "response": "You can book pre-paid excess baggage up to 1 hour prior to the scheduled departure of your domestic flight and 2 hours prior to the scheduled departure of your international flight."
+    },
+    {
+      "id": 14,
+      "question": "What is the charge for carrying an extra piece of checked baggage?",
+      "response": "The charge for carrying an extra piece of checked baggage at the airport is INR 1000 per piece. If you pre-book the additional piece online, the charge is INR 800 per piece, subject to a maximum of up to only 2 pieces."
+    },
+    {
+      "id": 15,
+      "question": "By when do I need to cancel my ticket if I don't want to lose the fare?",
+      "response": "You need to cancel your ticket at least 3 (three) hours prior to the scheduled departure time to avoid losing the fare. If you do not cancel within this time frame, the entire amount paid for the Booking will be retained by IndiGo."
+    },
+    {
+      "id": 16,
+      "question": "I booked yesterday directly on the IndiGo website. Can I still cancel for free?",
+      "response": "You can cancel for free if you do so within 48 hours from the time of booking, as long as your scheduled departure is not within 7 days for domestic flights. Since you booked yesterday, you are still within the 48-hour \"Look-in\" option. However, if your flight is scheduled to depart within 7 days, this option would not be available. Please check your flight's departure date to confirm."
+    },
+    {
+      "id": 17,
+      "question": "How long does a refund to my credit card take?",
+      "response": "For bookings made through credit/debit cards or via wallets, the refund will be processed to the credit/debit card or to the wallet used to make such booking within 7 (seven) working days from the date of the refund request."
+    },
+    {
+      "id": 18,
+      "question": "There's a spelling mistake in my name on the ticket. Can I fix it?",
+      "response": "Yes, you can correct a spelling mistake in your name within 24 (twenty-four) hours from the time of Booking without incurring any additional charges. You will need to contact IndiGo's Customer Care number at +91 124-4973838 / 124-6173838 to make this correction, provided the ticket was booked directly on the IndiGo website or mobile application."
+    },
+    {
+      "id": 19,
+      "question": "What happens to my money if I miss my flight without cancelling?",
+      "response": "If you miss your flight without cancelling, IndiGo will retain the entire amount paid for the Booking. However, you are entitled to a refund of Airport Charges, excluding GST. For further assistance, you may want to contact IndiGo support."
+    },
+    {
+      "id": 20,
+      "question": "Is there an extra charge for cancelling through the call centre?",
+      "response": "Yes, if cancellations to Bookings are made through IndiGo's call centre, a facilitation fee of up to INR 500 per person per flight will be levied by IndiGo."
+    },
+    {
+      "id": 21,
+      "question": "What is a Credit Shell?",
+      "response": "A Credit Shell is a credit note issued by IndiGo to a Customer due to any adjustment in the taxable value of services offered by IndiGo or any compensation provided under applicable law. It can be utilized by Customers for future travel on IndiGo flights within a specified period from the date of change or cancellation of the Booking for which the refund has been made."
+    },
+    {
+      "id": 22,
+      "question": "How early should I reach the airport before my IndiGo flight?",
+      "response": "IndiGo recommends that customers report for check-in at IndiGo counters at least 2 (two) hours prior to the departure of the scheduled flight. Additionally, customers are required to check-in their baggage/bag drop at least 60 (sixty) minutes prior to their departure time."
+    },
+    {
+      "id": 23,
+      "question": "Until when can I do web check-in?",
+      "response": "You can do web check-in on the IndiGo website anytime up to one (1) hour prior to the scheduled departure of your flight."
+    },
+    {
+      "id": 24,
+      "question": "Can I use my Aadhaar card as ID at check-in?",
+      "response": "Yes, you can use your Aadhaar card as a valid identification document at check-in. It is listed as one of the acceptable forms of ID in the context provided."
+    },
+    {
+      "id": 25,
+      "question": "Who is not allowed to sit in the emergency exit row?",
+      "response": "Customers who are not allowed to sit in the emergency exit row include those who are not able-bodied, are under 15 years of age on the date of travel, have a physical or mental condition that prevents them from opening an emergency exit, are suffering from a temporary illness affecting their mobility, are traveling with an infant, or are unwilling to open the emergency exit and assist other passengers in the event of an emergency."
+    },
+    {
+      "id": 26,
+      "question": "My flight was overbooked and I was denied boarding. What am I entitled to?",
+      "response": "If your flight was overbooked and you were denied boarding, you may be entitled to compensation in the form of vouchers from IndiGo, unless you were offered a seat on an alternate flight scheduled to depart within 1 (one) hour of your original flight. If you were denied boarding due to reasons such as health, safety, security, or inadequate travel documentation, you would not be eligible for compensation. Additionally, if you were traveling on connecting flights, compensation would only apply to the first leg of the journey if you arrived at your final destination at least 3 (three) hours later than scheduled due to the denied boarding."
+    },
+    {
+      "id": 27,
+      "question": "Can I carry a power bank in my checked luggage?",
+      "response": "No, you cannot carry a power bank in your checked luggage. Power banks and spare/loose lithium batteries are permitted only in hand baggage and must remain within the passenger's personal reach at all times."
+    },
+    {
+      "id": 28,
+      "question": "How much alcohol can I carry in my checked bag?",
+      "response": "You can carry up to 5 litres of alcoholic beverages as part of your checked-in baggage, provided the alcoholic beverage is in retail packaging and packed appropriately to prevent damage or leakage. Additionally, the alcohol content must not exceed 70%. If the alcoholic beverage contains 24% or less alcohol by volume, the limitation of 5 litres does not apply."
+    },
+    {
+      "id": 29,
+      "question": "Can I bring my hoverboard on the flight?",
+      "response": "No, you cannot bring your hoverboard on the flight. According to the baggage policy, \"Battery operated Hover boards, balance wheels, Solo wheels are not permitted as baggage.\" For more details, you may want to contact IndiGo support."
+    },
+    {
+      "id": 30,
+      "question": "I want to carry a big LED TV back home. Is that allowed?",
+      "response": "Yes, you can carry a maximum of two (02) LCD/LED TVs in Checked-in Baggage, provided the maximum size of each TV does not exceed 139.7 centimetres including the cartons. However, you must notify IndiGo at least 48 hours in advance through their Call Centre if you intend to carry a TV as Checked-in Baggage."
+    },
+    {
+      "id": 31,
+      "question": "Are e-cigarettes allowed on IndiGo flights?",
+      "response": "E-cigarettes are not permitted on IndiGo flights. The possession or use of e-cigarettes is prohibited, and customers are not allowed to carry them in their hand baggage or checked-in baggage. IndiGo reserves the right to refuse carriage of customers in possession of e-cigarettes and any baggage containing e-cigarettes."
+    },
+    {
+      "id": 32,
+      "question": "My checked bag was lost by the airline. How much compensation can I get?",
+      "response": "For loss of Checked-in Baggage, IndiGo's liability is limited to INR 350 per kg, subject to a maximum of INR 25,000 per passenger. If you have a specific weight for your lost baggage, you can calculate the compensation by multiplying that weight by INR 350, but it cannot exceed INR 25,000."
+    },
+    {
+      "id": 36,
+      "question": "My checked bag is at 13kg and I want to add a wine bottle. Domestic flight - will I go over the limit, and if yes what do I pay?",
+      "response": "You mentioned your checked bag is at 13kg. For domestic flights, the checked baggage allowance is 15kg per passenger. Therefore, if you add a wine bottle, you need to know its weight to determine if you'll exceed the limit. \n\nAssuming a standard wine bottle weighs about 1.2kg (this is an estimate and not from IndiGo's documents), your total would be:\n\n13kg + 1.2kg = 14.2kg, which is under the 15kg limit.\n\nIf the wine bottle weighs more than 1.8kg, you would exceed the limit and incur additional charges of INR 700 per kg for any excess weight beyond 15kg. If you need specific weight information for the wine bottle, please check that before your flight."
+    },
+    {
+      "id": 37,
+      "question": "I'm travelling with a 28kg checked bag. Does it matter whether my flight is to Dubai or to Nairobi?",
+      "response": "Yes, it matters. For a flight to Dubai, the checked baggage allowance is 30kg per person, which means your 28kg bag is within the limit (28kg < 30kg). However, for a flight to Nairobi, the checked baggage allowance is 25kg per person, which means your 28kg bag exceeds the limit (28kg > 25kg). Therefore, you would incur excess baggage charges for the Nairobi flight."
+    },
+    {
+      "id": 38,
+      "question": "I have two bags for my domestic trip and the second one counts as an extra piece. Do I save money by booking it online instead of paying at the airport?",
+      "response": "Yes, you can save money by booking the extra piece online. The pre-booking charge for an additional piece of baggage is INR 800 per piece, while the charge at the airport is INR 1000 per piece. Therefore, if you book online, you would pay INR 800, which is INR 200 less than the INR 1000 you would pay at the airport."
+    },
+    {
+      "id": 39,
+      "question": "How much will 10kg of extra baggage cost me?",
+      "response": "For domestic travel, the cost for 10 kg of pre-paid excess baggage is ₹ 6,500. If you choose to pay for excess baggage at the airport, it will cost you ₹ 700 per kg, which for 10 kg would be 10 kg × ₹ 700 = ₹ 7,000. \n\nSo, you have two options:\n- Pre-paid: ₹ 6,500\n- At airport: ₹ 7,000\n\nPre-paid is the cheaper option."
+    }
+  ]
+}
