@@ -1,0 +1,286 @@
+{
+  "description": "Eval dataset for Support Brain (IndiGo corpus). Ground truths verified against source documents by hand. Questions use casual customer phrasing on purpose - retrieval must bridge the wording gap. Items with answerable=false test refusal behaviour (answer is NOT in the corpus).",
+  "created": "2026-07-17",
+  "items": [
+    {
+      "id": 1,
+      "question": "How heavy can my cabin bag be?",
+      "ground_truth": "One hand bag up to 7 kg and 115 cm (L+W+H) is allowed per passenger, plus one personal article such as a purse or small laptop bag up to 3 kg.",
+      "source": "baggage-allowance.html",
+      "category": "baggage_allowance",
+      "answerable": true
+    },
+    {
+      "id": 2,
+      "question": "What are the size limits for hand baggage?",
+      "ground_truth": "Hand baggage must not exceed 55 cm x 35 cm x 25 cm (length + width + height totalling 115 cm), with a maximum weight of 7 kg.",
+      "source": "google-sheet-fees",
+      "category": "baggage_allowance",
+      "answerable": true
+    },
+    {
+      "id": 3,
+      "question": "How much free check-in baggage do I get on a domestic flight?",
+      "ground_truth": "15 kg free checked baggage per person, limited to one piece, effective Oct 1st 2020. Double/MultiSeat bookings get an extra 10 kg.",
+      "source": "baggage-allowance.html",
+      "category": "baggage_allowance",
+      "answerable": true
+    },
+    {
+      "id": 4,
+      "question": "I'm flying IndiGo business class - what's my baggage allowance?",
+      "ground_truth": "IndiGo Stretch+ (business class) customers get free checked baggage up to 40 kg in maximum 2 pieces. IndiGo Stretch customers get 30 kg in 2 pieces.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "baggage_allowance",
+      "answerable": true
+    },
+    {
+      "id": 5,
+      "question": "Is there a maximum weight for a single suitcase?",
+      "ground_truth": "Yes - as per regulatory requirement, a single piece of checked-in baggage cannot weigh more than 32 kg, even if excess baggage charges are paid.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "baggage_allowance",
+      "answerable": true
+    },
+    {
+      "id": 6,
+      "question": "What is the baggage allowance for flights to Dubai?",
+      "ground_truth": "30 kg checked baggage allowance per person for Dubai (among ~30 listed international sectors), plus one 7 kg hand bag.",
+      "source": "baggage-allowance.html",
+      "category": "baggage_allowance",
+      "answerable": true
+    },
+    {
+      "id": 7,
+      "question": "How much luggage can I take to Kathmandu?",
+      "ground_truth": "20 kg checked baggage allowance per person for Kathmandu (same as Bangkok, Bali, Krabi, Male, Mauritius, Phuket), basis the sector.",
+      "source": "google-sheet-fees",
+      "category": "baggage_allowance",
+      "answerable": true
+    },
+    {
+      "id": 8,
+      "question": "Do infants get a baggage allowance?",
+      "ground_truth": "Infants get one hand bag up to 7 kg and 115 cm but NIL check-in baggage allowance, on both domestic and international travel. One stroller or baby pram per infant is carried free.",
+      "source": "baggage-allowance.html",
+      "category": "baggage_allowance",
+      "answerable": true
+    },
+    {
+      "id": 9,
+      "question": "How much do I pay per kg if my bag is overweight at the airport?",
+      "ground_truth": "Excess baggage at the airport is charged at INR 700 per kg on domestic flights. Excess baggage charges are non-refundable in case of no-shows and gate no-shows.",
+      "source": "google-sheet-fees",
+      "category": "fees",
+      "answerable": true
+    },
+    {
+      "id": 10,
+      "question": "What does 10kg of prepaid excess baggage cost for a domestic flight?",
+      "ground_truth": "INR 6,500 for the 10 kg pre-paid excess baggage slab on domestic flights.",
+      "source": "excess-baggage.html",
+      "category": "fees",
+      "answerable": true
+    },
+    {
+      "id": 11,
+      "question": "What's the cheapest excess baggage option I can prebook?",
+      "ground_truth": "Pre-paid excess baggage starts at INR 1,280; prices vary based on availability. The smallest domestic slab is 3 kg at INR 1,950.",
+      "source": "excess-baggage.html",
+      "category": "fees",
+      "answerable": true
+    },
+    {
+      "id": 12,
+      "question": "I booked a Lite fare - can I check in a bag?",
+      "ground_truth": "Lite fare has no free checked baggage allowance. A checked bag can be purchased for INR 1,500 on domestic and INR 3,000 on international flights (same price pre-booked or at the airport).",
+      "source": "google-sheet-fees",
+      "category": "fees",
+      "answerable": true
+    },
+    {
+      "id": 13,
+      "question": "How late can I buy prepaid excess baggage before my flight?",
+      "ground_truth": "Pre-paid excess baggage can be booked up to 2 hours before scheduled departure via the website or call centre (the Baggage Policy PDF states up to 1 hour prior via website or call centre).",
+      "source": "prebook-excess-baggage.html",
+      "category": "fees",
+      "answerable": true
+    },
+    {
+      "id": 14,
+      "question": "What is the charge for carrying an extra piece of checked baggage?",
+      "ground_truth": "For domestic sectors an additional piece costs INR 900 if pre-booked and INR 1,000 at the airport (maximum 2 additional pieces). Per-kg excess baggage charges for the weight apply on top.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "fees",
+      "answerable": true
+    },
+    {
+      "id": 15,
+      "question": "By when do I need to cancel my ticket if I don't want to lose the fare?",
+      "ground_truth": "Changes or cancellations must be made at least 3 hours prior to scheduled departure. A change/cancellation fee per the Tariff Type applies and the residual amount is refunded.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "cancellations_refunds",
+      "answerable": true
+    },
+    {
+      "id": 16,
+      "question": "I booked yesterday directly on the IndiGo website. Can I still cancel for free?",
+      "ground_truth": "Yes - the Look-in option allows free cancellation or amendment within 48 hours of booking for tickets booked directly on IndiGo's website, provided departure is not within 7 days (domestic) or 15 days (international). Any fare difference is payable.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "cancellations_refunds",
+      "answerable": true
+    },
+    {
+      "id": 17,
+      "question": "How long does a refund to my credit card take?",
+      "ground_truth": "Refunds to credit/debit cards or wallets are processed within 7 working days of the refund request. American Express card refunds take up to 21 working days.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "cancellations_refunds",
+      "answerable": true
+    },
+    {
+      "id": 18,
+      "question": "There's a spelling mistake in my name on the ticket. Can I fix it?",
+      "ground_truth": "Yes - a spelling correction for the same customer can be made free of charge within 24 hours of booking by contacting IndiGo customer care, if booked directly on the IndiGo website or mobile app. Name changes to a different person are not permitted.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "cancellations_refunds",
+      "answerable": true
+    },
+    {
+      "id": 19,
+      "question": "What happens to my money if I miss my flight without cancelling?",
+      "ground_truth": "A no-show (failing to check in 60 minutes before departure without cancelling at least 3 hours before) means IndiGo retains the entire amount paid; only Airport Charges (excluding GST) are refunded.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "cancellations_refunds",
+      "answerable": true
+    },
+    {
+      "id": 20,
+      "question": "Is there an extra charge for cancelling through the call centre?",
+      "ground_truth": "Yes - cancellations through IndiGo's call centre attract a facilitation fee of up to INR 500 per person per flight.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "cancellations_refunds",
+      "answerable": true
+    },
+    {
+      "id": 21,
+      "question": "What is a Credit Shell?",
+      "ground_truth": "A Credit Shell is a credit note issued by IndiGo that can be used for future travel on IndiGo flights within a specified period from the date of change or cancellation of the booking in lieu of which the refund was made.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "cancellations_refunds",
+      "answerable": true
+    },
+    {
+      "id": 22,
+      "question": "How early should I reach the airport before my IndiGo flight?",
+      "ground_truth": "IndiGo recommends reporting for check-in at least 2 hours before scheduled departure. Baggage must be checked in / bag dropped at least 60 minutes before departure, and boarding gates close 25 minutes before departure.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "check_in_boarding",
+      "answerable": true
+    },
+    {
+      "id": 23,
+      "question": "Until when can I do web check-in?",
+      "ground_truth": "Web check-in on the website is available anytime up to 1 hour prior to scheduled departure.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "check_in_boarding",
+      "answerable": true
+    },
+    {
+      "id": 24,
+      "question": "Can I use my Aadhaar card as ID at check-in?",
+      "ground_truth": "Yes - Aadhaar or m-Aadhaar issued by UIDAI is a valid identification document for check-in, along with passport, voter ID, PAN card, driving license and other listed documents.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "check_in_boarding",
+      "answerable": true
+    },
+    {
+      "id": 25,
+      "question": "Who is not allowed to sit in the emergency exit row?",
+      "ground_truth": "Emergency exit seats are only for able-bodied customers aged 15+ who can operate the exit and assist in an emergency; customers travelling with an infant, or with conditions/temporary illness affecting mobility, cannot sit there.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "check_in_boarding",
+      "answerable": true
+    },
+    {
+      "id": 26,
+      "question": "My flight was overbooked and I was denied boarding. What am I entitled to?",
+      "ground_truth": "IndiGo pays compensation in the form of vouchers (per DGCA CAR). No compensation is due if IndiGo arranges an alternate flight departing within 1 hour of the original scheduled departure. Vouchers are valid 12 months, non-transferable and non-encashable.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "check_in_boarding",
+      "answerable": true
+    },
+    {
+      "id": 27,
+      "question": "Can I carry a power bank in my checked luggage?",
+      "ground_truth": "No - power banks and spare/loose lithium batteries are permitted only in hand baggage, must remain within personal reach, and must not be stowed in overhead compartments or checked baggage.",
+      "source": "indigo-baggage-policy.pdf",
+      "category": "special_items",
+      "answerable": true
+    },
+    {
+      "id": 28,
+      "question": "How much alcohol can I carry in my checked bag?",
+      "ground_truth": "Up to 5 litres of alcoholic beverages in checked baggage, in retail packaging, appropriately packed, with alcohol content not more than 70%. If the beverage is 24% alcohol or less, the 5-litre limit does not apply.",
+      "source": "indigo-baggage-policy.pdf",
+      "category": "special_items",
+      "answerable": true
+    },
+    {
+      "id": 29,
+      "question": "Can I bring my hoverboard on the flight?",
+      "ground_truth": "No - battery operated hoverboards, balance wheels and solo wheels are not permitted as baggage (neither checked nor hand baggage).",
+      "source": "indigo-baggage-policy.pdf",
+      "category": "special_items",
+      "answerable": true
+    },
+    {
+      "id": 30,
+      "question": "I want to carry a big LED TV back home. Is that allowed?",
+      "ground_truth": "Yes - a maximum of 2 LCD/LED TVs per customer in checked baggage, with maximum size 139.7 cm including the carton. Fragile-item conditions of carriage apply.",
+      "source": "indigo-baggage-policy.pdf",
+      "category": "special_items",
+      "answerable": true
+    },
+    {
+      "id": 31,
+      "question": "Are e-cigarettes allowed on IndiGo flights?",
+      "ground_truth": "No - e-cigarettes are prohibited in both hand and checked baggage, and on airport premises. IndiGo can refuse carriage to customers in possession of e-cigarettes.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "special_items",
+      "answerable": true
+    },
+    {
+      "id": 32,
+      "question": "My checked bag was lost by the airline. How much compensation can I get?",
+      "ground_truth": "IndiGo's liability for loss, damage, destruction or delay of checked baggage is limited to INR 350 per kg, subject to a maximum of INR 25,000 per passenger, unless a special declaration was made at check-in.",
+      "source": "indigo-conditions-of-carriage.pdf",
+      "category": "liability",
+      "answerable": true
+    },
+    {
+      "id": 33,
+      "question": "Can I take my pet dog in the cabin with me?",
+      "ground_truth": "NOT IN CORPUS - the documents mention service dogs under special assistance but contain no pet carriage policy. The bot must say it doesn't have this information and refer to IndiGo support.",
+      "source": "none",
+      "category": "refusal_probe",
+      "answerable": false
+    },
+    {
+      "id": 34,
+      "question": "How much does it cost to select a window seat in advance?",
+      "ground_truth": "NOT IN CORPUS - the documents mention the Seat-Select service exists with stipulated payment but no seat selection prices are included. The bot must decline to give a number.",
+      "source": "none",
+      "category": "refusal_probe",
+      "answerable": false
+    },
+    {
+      "id": 35,
+      "question": "Does IndiGo have a frequent flyer program and how do I earn points?",
+      "ground_truth": "NOT IN CORPUS - no loyalty/frequent-flyer program information exists in the documents. The bot must say it doesn't have this information.",
+      "source": "none",
+      "category": "refusal_probe",
+      "answerable": false
+    }
+  ]
+}
