@@ -118,6 +118,12 @@ def _get_retriever():
         password=url.password,
         table_name=TABLE_NAME,
         embed_dim=EMBED_DIM,
+        # pool_pre_ping: the retriever is cached for the process lifetime, but
+        # Supabase's pooler drops connections idle for a while. Without this,
+        # the first question after a quiet hour dies with "server closed the
+        # connection unexpectedly"; with it, SQLAlchemy tests the connection
+        # first and silently reconnects.
+        create_engine_kwargs={"pool_pre_ping": True},
     )
     index = VectorStoreIndex.from_vector_store(store)
     vector_retriever = index.as_retriever(similarity_top_k=CANDIDATE_K)

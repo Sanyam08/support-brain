@@ -1,0 +1,133 @@
+{
+  "name": "Support Brain — WhatsApp Delivery (W3-1)",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": ["messages"]
+      },
+      "type": "n8n-nodes-base.whatsAppTrigger",
+      "typeVersion": 1,
+      "position": [0, 0],
+      "id": "wa-trigger",
+      "name": "WhatsApp Trigger"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.messages && $json.messages[0] ? $json.messages[0].type : '' }}",
+              "rightValue": "text",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [220, 0],
+      "name": "Is a text message?"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://wand-endanger-reprimand.ngrok-free.dev/ask",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ question: $json.messages[0].text.body }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [440, -80],
+      "name": "Ask Support Brain"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Answer + up to 2 unique source names, WhatsApp-friendly.\nconst r = $input.first().json;\nconst seen = [];\nfor (const s of r.sources || []) {\n  if (!seen.includes(s.source)) seen.push(s.source);\n}\nconst src = seen.slice(0, 2).map(s => `- ${s}`).join('\\n');\nconst reply = r.answer + (src ? `\\n\\n_Sources:_\\n${src}` : '');\nreturn [{ json: { reply } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [660, -80],
+      "name": "Format reply"
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "phoneNumberId": "SET_ME_IN_UI",
+        "recipientPhoneNumber": "={{ $('WhatsApp Trigger').item.json.messages[0].from }}",
+        "textBody": "={{ $json.reply }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [880, -80],
+      "name": "Send WhatsApp Reply"
+    }
+  ],
+  "connections": {
+    "WhatsApp Trigger": {
+      "main": [
+        [
+          {
+            "node": "Is a text message?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is a text message?": {
+      "main": [
+        [
+          {
+            "node": "Ask Support Brain",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Ask Support Brain": {
+      "main": [
+        [
+          {
+            "node": "Format reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format reply": {
+      "main": [
+        [
+          {
+            "node": "Send WhatsApp Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}
