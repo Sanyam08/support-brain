@@ -1,12 +1,25 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
+from langfuse import get_client
 from pydantic import BaseModel, Field
 
 from app.rag import answer as rag_answer
 
+
+# Langfuse batches traces in memory and ships them in the background (so tracing
+# never slows down /ask). A lifespan hook flushes that buffer on shutdown —
+# without it, the last few traces can die with the process on Ctrl+C.
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    yield
+    get_client().shutdown()
+
+
 # FastAPI concept #1: this `app` object IS your web server's brain.
 # Every @app.get / @app.post decorator below registers a URL route on it.
 # uvicorn (the server) imports this object and forwards HTTP requests to it.
-app = FastAPI(title="Support Brain", version="0.1.0")
+app = FastAPI(title="Support Brain", version="0.1.0", lifespan=lifespan)
 
 
 @app.get("/")

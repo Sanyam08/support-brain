@@ -15,6 +15,7 @@ from functools import lru_cache
 from urllib.parse import urlparse
 
 from dotenv import load_dotenv
+from langfuse import get_client, observe
 
 load_dotenv()
 
@@ -152,17 +153,45 @@ def _get_llm():
     return OpenAI(model=LLM_MODEL, temperature=0.1, max_tokens=500)
 
 
+# Observability concept: @observe makes every call to answer() a TRACE in Langfuse —
+# one tree per question, with the steps below as child spans. If the LANGFUSE_* env
+# vars are missing the client disables itself and everything below is a no-op, so
+# the app runs identically with or without tracing configured.
+@observe(name="ask")
 def answer(question: str, include_contexts: bool = False) -> dict:
     """include_contexts=True adds the full retrieved chunk texts — used by the eval
     harness (RAGAS grades retrieval on the exact contexts the LLM saw), not the API."""
     from llama_index.core.llms import ChatMessage
 
+    lf = get_client()
+
     # Step 1 — RETRIEVE (hybrid): vector + BM25 shortlists fused into FUSED_K
     # candidates, then the cross-encoder keeps the TOP_K genuinely relevant ones.
     # Note: after reranking, `score` is a cross-encoder logit (can be negative;
     # higher = more relevant), not a 0-1 cosine similarity.
-    hits = _get_retriever().retrieve(question)
-    hits = _get_reranker().postprocess_nodes(hits, query_str=question)
+    # Traced as two spans so the dashboard shows what fusion surfaced vs what the
+    # reranker kept — the exact before/after the demo needs to point at.
+    with lf.start_as_current_observation(
+        name="hybrid_retrieve", as_type="retriever", input=question
+    ) as span:
+        fused = _get_retriever().retrieve(question)
+        span.update(
+            output=[
+                {"source": h.metadata.get("source", "?"), "rrf_score": round(float(h.score), 4)}
+                for h in fused
+            ]
+        )
+    with lf.start_as_current_observation(
+        name="rerank", as_type="retriever", input=f"{len(fused)} candidates -> keep {TOP_K}",
+        metadata={"model": RERANK_MODEL},
+    ) as span:
+        hits = _get_reranker().postprocess_nodes(fused, query_str=question)
+        span.update(
+            output=[
+                {"source": h.metadata.get("source", "?"), "ce_score": round(float(h.score), 3)}
+                for h in hits
+            ]
+        )
 
     # Step 2 — AUGMENT: paste those chunks into the prompt, labeled [1]..[4]
     # so the model can only see (and cite) what retrieval surfaced.
@@ -174,12 +203,30 @@ def answer(question: str, include_contexts: bool = False) -> dict:
     )
 
     # Step 3 — GENERATE: one LLM call writes the answer from that context.
-    response = _get_llm().chat(
-        [
-            ChatMessage(role="system", content=SYSTEM_PROMPT),
-            ChatMessage(role="user", content=f"Context:\n{context}\n\nQuestion: {question}"),
-        ]
-    )
+    # Traced as a GENERATION (not a plain span): given model name + token counts,
+    # Langfuse computes cost per question — the "what does each answer cost" number.
+    messages = [
+        ChatMessage(role="system", content=SYSTEM_PROMPT),
+        ChatMessage(role="user", content=f"Context:\n{context}\n\nQuestion: {question}"),
+    ]
+    with lf.start_as_current_observation(
+        name="generate_answer",
+        as_type="generation",
+        model=LLM_MODEL,
+        model_parameters={"temperature": 0.1, "max_tokens": 500},
+        input=[{"role": m.role.value, "content": m.content} for m in messages],
+    ) as gen:
+        response = _get_llm().chat(messages)
+        usage = getattr(response.raw, "usage", None)
+        gen.update(
+            output=response.message.content,
+            usage_details={
+                "input": getattr(usage, "prompt_tokens", 0),
+                "output": getattr(usage, "completion_tokens", 0),
+            }
+            if usage
+            else None,
+        )
 
     result = {
         "answer": response.message.content.strip(),
@@ -187,7 +234,10 @@ def answer(question: str, include_contexts: bool = False) -> dict:
             {
                 "source": h.metadata.get("source", "?"),
                 "location": h.metadata.get("page_label") or h.metadata.get("row"),
-                "score": round(h.score, 3),
+                # float() matters: the cross-encoder returns numpy.float32, which
+                # FastAPI's JSON encoder rejects (the eval harness never hits this
+                # because it consumes the dict in-process, not over HTTP).
+                "score": round(float(h.score), 3),
                 "snippet": h.get_content()[:200].strip(),
             }
             for h in hits
