@@ -234,6 +234,11 @@ def answer(question: str, include_contexts: bool = False) -> dict:
             else None,
         )
 
+    # All 6 chunks go to the LLM (recall), but we only CITE the ones the
+    # cross-encoder scored as genuinely relevant — positive score is the
+    # model's own relevant/irrelevant line. Fallback to the top hit so an
+    # answer never shows zero sources. Eval contexts below stay unfiltered.
+    cited = [h for h in hits if float(h.score) > 0] or hits[:1]
     result = {
         "answer": response.message.content.strip(),
         "sources": [
@@ -246,7 +251,7 @@ def answer(question: str, include_contexts: bool = False) -> dict:
                 "score": round(float(h.score), 3),
                 "snippet": h.get_content()[:200].strip(),
             }
-            for h in hits
+            for h in cited
         ],
     }
     if include_contexts:
