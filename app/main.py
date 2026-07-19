@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from langfuse import get_client
 from pydantic import BaseModel, Field
 
@@ -20,6 +21,17 @@ async def lifespan(app: FastAPI):
 # Every @app.get / @app.post decorator below registers a URL route on it.
 # uvicorn (the server) imports this object and forwards HTTP requests to it.
 app = FastAPI(title="Support Brain", version="0.1.0", lifespan=lifespan)
+
+# The web widget (widget/demo.html) is opened straight from disk or any static
+# host, so its browser origin never matches this API's — without CORS headers the
+# browser blocks the POST /ask response. Wide-open is fine here: the API is
+# read-only Q&A on public docs and only reachable via localhost/ngrok demos.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["POST", "GET"],
+    allow_headers=["Content-Type"],
+)
 
 
 @app.get("/")

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skyline Airways — Help Center</title>
+<!--
+  Demo host page for the Support Brain chat widget.
+  Generic placeholder branding ("Skyline Airways") — the widget itself is the
+  product; this page just shows it living on a realistic business site.
+  Open directly in a browser with the FastAPI backend running on :8000,
+  or append ?api=https://your-ngrok-domain to point elsewhere.
+-->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1d2433; background: #fff;
+  }
+  .nav {
+    display: flex; align-items: center; gap: 28px;
+    padding: 16px 6vw; border-bottom: 1px solid #e8ebf2;
+  }
+  .logo { font-size: 20px; font-weight: 800; color: #3d5af1; letter-spacing: -.5px; }
+  .nav a { color: #4a5468; text-decoration: none; font-size: 14.5px; }
+  .nav a:hover { color: #3d5af1; }
+  .hero {
+    background: linear-gradient(135deg, #eef1fd 0%, #f7f9ff 100%);
+    padding: 56px 6vw; text-align: center;
+  }
+  .hero h1 { font-size: 32px; margin-bottom: 10px; }
+  .hero p { color: #5a6478; font-size: 16px; }
+  .search {
+    margin: 26px auto 0; max-width: 560px; display: flex; gap: 8px;
+  }
+  .search input {
+    flex: 1; padding: 13px 16px; border: 1px solid #cdd4e3;
+    border-radius: 10px; font-size: 15px; outline: none;
+  }
+  .search button {
+    padding: 0 22px; border: none; border-radius: 10px;
+    background: #3d5af1; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer;
+  }
+  .cards {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px; padding: 44px 6vw; max-width: 1100px; margin: 0 auto;
+  }
+  .card {
+    border: 1px solid #e8ebf2; border-radius: 12px; padding: 22px;
+    transition: box-shadow .15s;
+  }
+  .card:hover { box-shadow: 0 4px 18px rgba(20,30,80,.08); }
+  .card .ico { font-size: 26px; margin-bottom: 10px; }
+  .card h3 { font-size: 16px; margin-bottom: 6px; }
+  .card p { font-size: 13.5px; color: #5a6478; }
+  .strip {
+    text-align: center; padding: 30px 6vw 60px; color: #5a6478; font-size: 14.5px;
+  }
+  .strip b { color: #1d2433; }
+  footer {
+    border-top: 1px solid #e8ebf2; padding: 22px 6vw;
+    font-size: 12.5px; color: #8a93a6; text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="logo">✈ Skyline Airways</span>
+  <a href="#">Book</a><a href="#">Manage Trip</a><a href="#">Check-in</a><a href="#">Help Center</a>
+</nav>
+
+<section class="hero">
+  <h1>How can we help you today?</h1>
+  <p>Search our help articles, or chat with our AI assistant in the corner.</p>
+  <div class="search">
+    <input type="text" placeholder="Search help articles...">
+    <button>Search</button>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="card"><div class="ico">🧳</div><h3>Baggage</h3><p>Allowances, excess baggage fees, special and sports equipment.</p></div>
+  <div class="card"><div class="ico">🎫</div><h3>Bookings &amp; Changes</h3><p>Change or cancel a flight, name corrections, fare rules.</p></div>
+  <div class="card"><div class="ico">💸</div><h3>Refunds &amp; Fees</h3><p>Refund timelines, cancellation charges, payment issues.</p></div>
+  <div class="card"><div class="ico">🛂</div><h3>Travel Documents</h3><p>ID requirements, international travel, visas and health rules.</p></div>
+</section>
+
+<p class="strip">Can't find what you need? Our <b>AI assistant</b> answers instantly from our official policy documents — try the chat bubble at the bottom right.</p>
+
+<footer>Skyline Airways — demo page. Not a real airline; placeholder site for the Support Brain widget demo.</footer>
+
+<!-- The entire widget: one script tag. data-api sets the backend URL. -->
+<script src="widget.js" data-api="http://localhost:8000"></script>
+
+</body>
+</html>
