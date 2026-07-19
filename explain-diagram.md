@@ -1,5 +1,7 @@
 # Support Brain — build explained in simple terms
 
+> The diagram itself now lives at `diagram/support-brain.excalidraw` (open at excalidraw.com or with the VS Code Excalidraw extension). Five numbered zones = narration order for the video.
+
 Source notes for the end-of-project Excalidraw diagram + demo video narration.
 One section per milestone; written so Sanyam can explain every box on a client call.
 
